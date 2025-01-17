@@ -693,6 +693,8 @@ class LatentDiffusion(DDPM):
         for param in self.first_stage_model.parameters():
             param.requires_grad = False
 
+    """ 
+    # 사용하지 않음 - condition 부분
     def instantiate_cond_stage(self, config):
         if not self.cond_stage_trainable:
             if config == "__is_first_stage__":
@@ -708,6 +710,7 @@ class LatentDiffusion(DDPM):
                 self.cond_stage_model.train = disabled_train
                 for param in self.cond_stage_model.parameters():
                     param.requires_grad = False
+    """
 
     def _get_denoise_row_from_list(
         self, samples, desc="", force_no_decoder_quantization=False
